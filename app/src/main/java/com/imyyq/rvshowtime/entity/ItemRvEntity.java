@@ -1,4 +1,4 @@
-package com.imyyq.rvshowtime;
+package com.imyyq.rvshowtime.entity;
 
 import com.imyyq.showtime.RvShowTimeInnerInterface;
 import com.imyyq.showtime.RvShowTimeScrollListener;
@@ -11,8 +11,12 @@ public class ItemRvEntity implements RvInterface, RvShowTimeInnerInterface {
 
     private RvShowTimeScrollListener listener;
 
-    public ItemRvEntity(int inOuterPosition) {
-        listener = new RvShowTimeScrollListener(list, inOuterPosition, "example inner");
+    public ItemRvEntity(int inOuterPosition, Integer fragmentHashCode) {
+        if (fragmentHashCode != null) {
+            listener = new RvShowTimeScrollListener(fragmentHashCode, list, inOuterPosition, "example inner");
+        } else {
+            listener = new RvShowTimeScrollListener(list, inOuterPosition, "example inner");
+        }
     }
 
     @Override

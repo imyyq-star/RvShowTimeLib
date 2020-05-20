@@ -14,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onExample(View view) {
+    public void onActivity(View view) {
         startActivity(new Intent(this, ExampleActivity.class));
+    }
+
+    public void onFragment(View view) {
+        startActivity(new Intent(this, FragmentContainerActivity.class));
     }
 }

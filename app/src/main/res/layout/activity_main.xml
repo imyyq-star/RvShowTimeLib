@@ -3,14 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity"
     >
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="简单示例"
-        android:onClick="onExample"
+        android:text="Activity 示例"
+        android:onClick="onActivity"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment 示例"
+        android:onClick="onFragment"
         />
 
 </LinearLayout>

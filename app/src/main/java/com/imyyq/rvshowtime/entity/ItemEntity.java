@@ -1,4 +1,4 @@
-package com.imyyq.rvshowtime;
+package com.imyyq.rvshowtime.entity;
 
 import androidx.annotation.NonNull;
 
