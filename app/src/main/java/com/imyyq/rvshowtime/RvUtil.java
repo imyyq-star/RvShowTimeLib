@@ -21,7 +21,6 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NavigableMap;
 
 public class RvUtil {
     public static void initRv(FragmentManager manager, Fragment fragment, RecyclerView rv) {

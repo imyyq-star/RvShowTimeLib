@@ -17,13 +17,18 @@ public class RvShowTimeScrollListener extends RecyclerView.OnScrollListener {
     private boolean mIsInnerRv = false; // 外部rv才需要遍历内部rv
     private Integer mInnerRvInOuterRvPos = null; // 内部rv在外部rv中的position
 
+    /**
+     * 给 activity rv 使用
+     *
+     * @param data rv 的数据
+     */
     public RvShowTimeScrollListener(List data, String debugLabel) {
         mOuterData = data;
         this.mOuterShowTimeManager = new RvShowTimeManager(data, debugLabel);
     }
 
     /**
-     * 给activity的Rv的内部Rv用的
+     * 给 activity Rv 的内部 Rv 用的
      *
      * @param data            内部Rv数据
      * @param innerRvPosition 内部Rv在外部Rv中的位置
@@ -35,7 +40,7 @@ public class RvShowTimeScrollListener extends RecyclerView.OnScrollListener {
     }
 
     /**
-     * Fragment 使用
+     * Fragment rv 使用
      *
      * @param fragmentManager  FragmentManager
      * @param fragmentHashCode FragmentCode
@@ -48,7 +53,7 @@ public class RvShowTimeScrollListener extends RecyclerView.OnScrollListener {
     }
 
     /**
-     * 给Fragment的Rv内部Rv使用的
+     * 给 Fragment Rv 内部 Rv 使用的
      *
      * @param fragmentHashCode Fragment 的 code
      * @param data             内部Rv数据
@@ -70,13 +75,8 @@ public class RvShowTimeScrollListener extends RecyclerView.OnScrollListener {
         Integer firstVisibleItemPosition = null;
         Integer lastVisibleItemPosition = null;
 
-        if (layoutManager instanceof GridLayoutManager) {
-            GridLayoutManager manager = (GridLayoutManager) layoutManager;
-
-            firstVisibleItemPosition = manager.findFirstVisibleItemPosition();
-            lastVisibleItemPosition = manager.findLastVisibleItemPosition();
-
-        } else if (layoutManager instanceof LinearLayoutManager) {
+        // Grid 也继承自 Linear
+        if (layoutManager instanceof LinearLayoutManager) {
             LinearLayoutManager manager = (LinearLayoutManager) layoutManager;
 
             firstVisibleItemPosition = manager.findFirstVisibleItemPosition();

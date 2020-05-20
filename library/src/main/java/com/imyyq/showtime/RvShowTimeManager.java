@@ -25,10 +25,10 @@ import java.util.Set;
  * 每个列表 item 只有显示在屏幕上了，才会开始计时，通过滑动消失在屏幕上了，才会结束计时。
  * <p>
  * 给 Rv 加曝光功能分为以下步骤：
- * 1、rv.addOnScrollListener 添加 {@link RvShowTimeScrollListener}
- * 2、列表所属界面需实现 {@link RvShowTimeInterface}，接收曝光数据
- * 3、提供 rv 对应的数据列表，该数据列表需实现 {@link }，不一定是 vm 实现它，只要索引和 rv 匹配的数据即可。
- * 4、如果有内嵌的横滑列表，该列表属于内部列表，其所在数据列表需要实现 {@link RvShowTimeInnerInterface}
+ * 0. 初始化 {@link RvShowTimeManager setApplication}
+ * 1、需要曝光的 rv 增加 rv.addOnScrollListener 添加 {@link RvShowTimeScrollListener}
+ * 2、列表所属界面需实现 {@link RvShowTimeInterface}，复写接口方法接收曝光数据
+ * 3、如果有内嵌的横滑列表，该列表属于内部列表，其所在数据列表需要实现 {@link RvShowTimeInnerInterface}
  */
 @SuppressWarnings("WeakerAccess")
 public class RvShowTimeManager {
@@ -63,10 +63,20 @@ public class RvShowTimeManager {
 
     private static Application mApplication;
 
+    /**
+     * 初始化
+     *
+     * @param mApplication 当前应用的 application
+     */
     public static void setApplication(Application mApplication) {
         RvShowTimeManager.mApplication = mApplication;
     }
 
+    /**
+     * 给 activity rv 使用
+     *
+     * @param data rv 的数据
+     */
     public RvShowTimeManager(List data, String debugLabel) {
         this(data, false, null, debugLabel);
     }
@@ -109,6 +119,13 @@ public class RvShowTimeManager {
         list.add(this);
     }
 
+    /**
+     * fragment rv 使用的
+     *
+     * @param fragmentManager  该 fragment 所属的 fragmentManager
+     * @param fragmentHashCode fragment 的 HashCode
+     * @param data             数据
+     */
     public RvShowTimeManager(FragmentManager fragmentManager, int fragmentHashCode, List data, String debugLabel) {
         this.debugLabel = debugLabel;
         this.mDataList = data;
