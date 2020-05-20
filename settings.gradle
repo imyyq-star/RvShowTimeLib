@@ -1,3 +1,4 @@
 rootProject.name='RvShowTimeLib'
 include ':app'
 include ':baseadapter-recyclerview'
+include ':library'
