@@ -9,6 +9,6 @@
 
 # 注意
 如果你的 rv 是这样的：
-![](images/rv.png)
+![图1](https://imyyq.coding.net/p/MyMarkdownImg/d/MyMarkdownImg/git/raw/master/f275ffb94c76c459704cbafb1cc10c60781006104462f2ea4cf3fa866638b2a0.png)  
 
 请不要简单粗暴的使用 LinearLayoutManager 去实现这种多列的布局，考虑使用 **GridLayoutManager + GridLayoutManager.SpanSizeLookup**，这样才能精确的得到曝光数据。
